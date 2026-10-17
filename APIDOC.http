@@ -64,3 +64,24 @@ Authorization: Token f57775f2e69917d9e9da5624ae6326a0f4cce943
     "posted_by": 1
   }
 
+
+#fetch problem
+###
+GET http://127.0.0.1:8000/api/problems/1/detail/
+Accept: application/json
+Authorization: Token f57775f2e69917d9e9da5624ae6326a0f4cce943
+
+
+#student register
+###
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{
+    "username":"student2",
+    "password":"Password@123",
+    "email":"student2@gmail.com",
+    "phone":"9846772001"
+}
+
+

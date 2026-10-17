@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 
 from rest_framework.authtoken.views import ObtainAuthToken
-from api.views import ProblemListCreateView,ProblemUpdateDeleteView,AdminCreateView
+from api.views import ProblemListCreateView,ProblemUpdateDeleteView,AdminCreateView,ProblemRetrieveView
+from student.views import StudentCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,11 @@ urlpatterns = [
     path("api/admin/register/",AdminCreateView.as_view()),
     path("api/problems/",ProblemListCreateView.as_view()),
     path("api/problems/<int:pk>/",ProblemUpdateDeleteView.as_view()),
+    path("api/problems/<int:pk>/detail/",ProblemRetrieveView.as_view()),
+
+    #student
+
+    path("api/register/",StudentCreateView.as_view()),
+    
 
 ]

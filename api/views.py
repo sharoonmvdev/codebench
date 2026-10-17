@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.backends import ModelBackend
 
-from rest_framework.generics import ListAPIView,CreateAPIView,UpdateAPIView,DestroyAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView,UpdateAPIView,DestroyAPIView,RetrieveAPIView
 
 from rest_framework import permissions,authentication
 
@@ -41,6 +41,19 @@ class ProblemUpdateDeleteView(UpdateAPIView,DestroyAPIView):
     authentication_classes = [authentication.TokenAuthentication]
 
     permission_classes = [OwnerOnly]
+
+
+class ProblemRetrieveView(RetrieveAPIView):
+
+    queryset = Problem.objects.all()
+
+    serializer_class = ProblemSerializer
+
+    authentication_classes = [authentication.TokenAuthentication]
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    
 
 
 
